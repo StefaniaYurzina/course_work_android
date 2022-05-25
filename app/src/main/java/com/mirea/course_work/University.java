@@ -1,12 +1,14 @@
 package com.mirea.course_work;
 
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
 public class University {
     @PrimaryKey
+    @NonNull
     public String name;
     public boolean isGov;
     public boolean haveDorm;

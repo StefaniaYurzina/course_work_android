@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Projects/course_work_android/app/src/main/res/layout/activity_main.xml" value="0.152" />
+        <entry key="..\:/Projects/course_work_android/app/src/main/res/layout/card.xml" value="0.1" />
+        <entry key="..\:/Projects/course_work_android/app/src/main/res/layout/fragment_home.xml" value="0.17447916666666666" />
+        <entry key="..\:/Projects/course_work_android/app/src/main/res/layout/fragment_mirea.xml" value="0.1" />
         <entry key="..\:/Users/stesh/Documents/Unic/4sem/Mobile/course_work/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Users/stesh/Documents/Unic/4sem/Mobile/course_work/app/src/main/res/layout/activity_main.xml" value="0.13333333333333333" />
         <entry key="..\:/Users/stesh/Documents/Unic/4sem/Mobile/course_work/app/src/main/res/layout/card.xml" value="0.3333333333333333" />

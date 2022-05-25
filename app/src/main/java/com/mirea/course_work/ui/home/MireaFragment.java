@@ -1,5 +1,7 @@
 package com.mirea.course_work.ui.home;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,6 +13,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.mirea.course_work.R;
 import com.mirea.course_work.University;
@@ -22,7 +26,10 @@ public class MireaFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        ConstraintLayout layout = (ConstraintLayout) inflater.inflate(R.layout.fragment_mirea, container, false);
+        LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.fragment_mirea, container, false);
+        ImageView image = layout.findViewById(R.id.imageView);
+        Drawable drawable = getResources().getDrawable(R.drawable.mirea);
+        image.setImageDrawable(drawable);
         return layout;
     }
 

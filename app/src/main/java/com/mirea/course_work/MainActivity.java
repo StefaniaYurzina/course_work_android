@@ -20,21 +20,29 @@ import com.mirea.course_work.ui.home.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
 
+    public void newThread(Runnable runnable){
+        Thread t = new Thread(runnable);
+        t.start();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         UniversityDao dao = App.getInstance().getDatabase().universityDao();
         University mirea = new University("МИРЭА", true, true, "г. Москва", 1);
-        dao.insert(mirea);
         University mgu = new University("МГУ", true, true, "г. Москва", 1);
-        dao.insert(mgu);
         University spbgu = new University("СПбГУ", false, true, "г. Санкт - Петербург", 1);
-        dao.insert(spbgu);
         University urfu = new University("УрФУ", true, true, "г. Екатеринбург", 1);
-        dao.insert(urfu);
         University ranhigs = new University("РАНХиГС", true, false, "г. Москва", 1);
-        dao.insert(ranhigs);
+        
+        newThread(() -> {
+            dao.insert(mirea);
+            dao.insert(mgu);
+            dao.insert(spbgu);
+            dao.insert(urfu);
+            dao.insert(ranhigs);
+        });
 
         setContentView(R.layout.activity_main);
 

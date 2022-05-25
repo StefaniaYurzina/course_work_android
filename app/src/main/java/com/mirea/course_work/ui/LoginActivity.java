@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+import com.mirea.course_work.MainActivity;
 import com.mirea.course_work.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -20,7 +21,8 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn = findViewById(R.id.loginBtn);
         loginBtn.setOnClickListener(view -> {
 
-            Intent intent
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         });
     }
     //TODO сделать разметку
