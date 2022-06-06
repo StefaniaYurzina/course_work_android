@@ -25,17 +25,18 @@ public class MainActivity extends AppCompatActivity {
         t.start();
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         UniversityDao dao = App.getInstance().getDatabase().universityDao();
-        University mirea = new University("МИРЭА", true, true, "г. Москва", 1);
-        University mgu = new University("МГУ", true, true, "г. Москва", 1);
-        University spbgu = new University("СПбГУ", false, true, "г. Санкт - Петербург", 1);
-        University urfu = new University("УрФУ", true, true, "г. Екатеринбург", 1);
-        University ranhigs = new University("РАНХиГС", true, false, "г. Москва", 1);
-        
+        University mirea = new University("МИРЭА", true, true, "г. Москва", R.drawable.mirea);
+        University mgu = new University("МГУ", true, true, "г. Москва", R.drawable.mgu);
+        University spbgu = new University("СПбГУ", false, true, "г. Санкт - Петербург", R.drawable.spbgu);
+        University urfu = new University("УрФУ", true, true, "г. Екатеринбург", R.drawable.urfu);
+        University ranhigs = new University("РАНХиГС", true, false, "г. Москва", R.drawable.ranhigs);
+
         newThread(() -> {
             dao.insert(mirea);
             dao.insert(mgu);
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
+                R.id.navigation_home, R.id.navigation_table, R.id.navigation_profile)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);

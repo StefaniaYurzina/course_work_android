@@ -1,6 +1,7 @@
 package com.mirea.course_work.ui.home;
 
-import android.app.FragmentManager;
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,21 +15,15 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
+import com.mirea.course_work.MainActivity;
 import com.mirea.course_work.R;
 import com.mirea.course_work.University;
 import com.mirea.course_work.UniversityDao;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class HomeFragment extends Fragment {
-
-    public void newThread(Runnable runnable){
-        Thread t = new Thread(runnable);
-        t.start();
-    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -42,7 +37,7 @@ public class HomeFragment extends Fragment {
             CardView universityCard = createUniversityCard(university);
             mainScroll.addView(universityCard);
         }
-        //TODO добавить отступы
+
         return layout;
     }
 
@@ -60,7 +55,11 @@ public class HomeFragment extends Fragment {
     public CardView createUniversityCard(University university) {
         LayoutInflater inflater = LayoutInflater.from(this.getContext());
         CardView cardView = (CardView) inflater.inflate(R.layout.card, null, false);
-        //ViewGroup.
+
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        lp.setMargins(10, 10, 10, 10);
+        cardView.setLayoutParams(lp);
+
         ImageView image;
         TextView name;
         TextView isGov;
@@ -72,9 +71,16 @@ public class HomeFragment extends Fragment {
         haveDorm = cardView.findViewById(R.id.haveDorm);
         city = cardView.findViewById(R.id.city);
 
-        //image.getDrawable(university.image);
+        //int imageResource = getResources().getIdentifier(university.image, null,);
+        Drawable res = getResources().getDrawable(university.image);
+        image.setImageDrawable(res);
+
         name.setText(university.name);
-        isGov.setText(university.isGov ? "не государственный" : "государственный");
+        if (university.isGov) {
+            isGov.setText("не государственный");
+        } else {
+            isGov.setText("государственный");
+        }
         if (university.haveDorm) {
             haveDorm.setText("с общежитием");
         } else {
@@ -83,13 +89,11 @@ public class HomeFragment extends Fragment {
         city.setText(university.city);
 
         cardView.setOnClickListener(v -> {
-            MireaFragment mireaFragment = new MireaFragment();
-
-            getActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, mireaFragment).commit();
-
+            Intent intent = new Intent(this.getActivity(), MireaActivity.class);
+            startActivity(intent);
             //TODO проверить
         });
+
         return cardView;
     }
 }

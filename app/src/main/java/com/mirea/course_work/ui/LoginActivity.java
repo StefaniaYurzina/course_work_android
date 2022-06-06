@@ -25,5 +25,4 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
         });
     }
-    //TODO сделать разметку
 }
