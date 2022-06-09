@@ -1,9 +1,10 @@
-package com.mirea.course_work.ui.notifications;
+package com.mirea.course_work.ui.profile;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,11 +13,20 @@ import androidx.fragment.app.Fragment;
 
 import com.mirea.course_work.R;
 
-public class NotificationsFragment extends Fragment {
+public class ProfileFragment extends Fragment {
+
+    private static ProfileFragment instance;
+
+    public static ProfileFragment getInstance() {
+        if (instance == null) {
+            instance = new ProfileFragment();
+        }
+        return instance;
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        ConstraintLayout layout = (ConstraintLayout) inflater.inflate(R.layout.fragment_profile, container, false);
+        LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.fragment_profile, container, false);
         return layout;
     }
 

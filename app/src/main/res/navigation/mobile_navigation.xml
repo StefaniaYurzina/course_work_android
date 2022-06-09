@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/navigation_table"
-        android:name="com.mirea.course_work.ui.dashboard.DashboardFragment"
+        android:name="com.mirea.course_work.ui.table.TableFragment"
         android:label="@string/title_table"
         tools:layout="@layout/fragment_table" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.mirea.course_work.ui.notifications.NotificationsFragment"
+        android:name="com.mirea.course_work.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>

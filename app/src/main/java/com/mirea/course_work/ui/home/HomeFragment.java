@@ -20,10 +20,20 @@ import com.mirea.course_work.MainActivity;
 import com.mirea.course_work.R;
 import com.mirea.course_work.University;
 import com.mirea.course_work.UniversityDao;
+import com.mirea.course_work.ui.profile.ProfileFragment;
 
 import java.util.List;
 
 public class HomeFragment extends Fragment {
+
+    private static HomeFragment instance;
+
+    public static HomeFragment getInstance() {
+        if (instance == null) {
+            instance = new HomeFragment();
+        }
+        return instance;
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
